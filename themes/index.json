@@ -1,0 +1,111 @@
+{
+ "version": 1,
+ "themes": [
+  {
+   "name": "Аврора",
+   "author": "LockPlay",
+   "theme": "dark",
+   "accent": "#5eead4",
+   "radius": 20,
+   "title_weight": 850,
+   "colors": {
+    "bg": "#0b1020",
+    "surface": "#141b33",
+    "text": "#e3fbff"
+   }
+  },
+  {
+   "name": "Вишнёвый закат",
+   "author": "LockPlay",
+   "theme": "dark",
+   "accent": "#ff4d6d",
+   "radius": 18,
+   "title_weight": 850,
+   "colors": {
+    "bg": "#1a0b12",
+    "surface": "#2a121d",
+    "text": "#ffe3ea"
+   }
+  },
+  {
+   "name": "Ночной Токио",
+   "author": "LockPlay",
+   "theme": "dark",
+   "accent": "#ff2bd6",
+   "radius": 12,
+   "title_weight": 900,
+   "colors": {
+    "bg": "#0a0a1f",
+    "surface": "#14143a",
+    "text": "#e6e6ff"
+   }
+  },
+  {
+   "name": "Лаванда",
+   "author": "LockPlay",
+   "theme": "light",
+   "accent": "#8b5cf6",
+   "radius": 22,
+   "title_weight": 800,
+   "colors": {
+    "bg": "#f7f3ff",
+    "surface": "#ece4ff",
+    "text": "#2a1f45"
+   }
+  },
+  {
+   "name": "Кофе",
+   "author": "LockPlay",
+   "theme": "dark",
+   "accent": "#d4a373",
+   "radius": 14,
+   "title_weight": 800,
+   "colors": {
+    "bg": "#1b1410",
+    "surface": "#2a1f18",
+    "text": "#f3e6d8"
+   }
+  },
+  {
+   "name": "Матрица",
+   "author": "LockPlay",
+   "theme": "dark",
+   "accent": "#22ff88",
+   "radius": 4,
+   "title_weight": 900,
+   "shadows": false,
+   "colors": {
+    "bg": "#030805",
+    "surface": "#0a140d",
+    "text": "#c8ffd8"
+   }
+  },
+  {
+   "name": "Океан",
+   "author": "LockPlay",
+   "theme": "dark",
+   "accent": "#38bdf8",
+   "radius": 18,
+   "title_weight": 800,
+   "colors": {
+    "bg": "#06141f",
+    "surface": "#0d2232",
+    "text": "#e0f4ff"
+   }
+  },
+  {
+   "name": "Монохром",
+   "author": "LockPlay",
+   "theme": "dark",
+   "accent": "#f5f5f5",
+   "radius": 10,
+   "title_weight": 900,
+   "borders": true,
+   "colors": {
+    "bg": "#000000",
+    "surface": "#111111",
+    "text": "#ffffff"
+   }
+  }
+ ]
+}
