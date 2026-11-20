@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a0f1a"/>
+      <stop offset="0.6" stop-color="#2a1027"/>
+      <stop offset="1" stop-color="#1b1236"/>
+    </linearGradient>
+    <linearGradient id="i" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff6fa3"/>
+      <stop offset="0.55" stop-color="#e64980"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.22" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#e64980" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#e64980" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="360" rx="36" fill="url(#g)"/>
+  <rect width="1280" height="360" rx="36" fill="url(#glow)"/>
+  <g transform="translate(120 72)">
+    <rect width="216" height="216" rx="56" fill="url(#i)"/>
+    <path d="M86 60 L162 108 L86 156 Z" fill="#fff" stroke="#fff" stroke-width="14" stroke-linejoin="round"/>
+    <path d="M44 90 v36 M58 78 v60" stroke="#fff" stroke-opacity="0.75" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <text x="390" y="178" fill="#ffffff" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="92" font-weight="800">LockPlay</text>
+  <text x="394" y="236" fill="#f3c6d8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="28">SoundCloud · Яндекс Музыка · YouTube — в одном плеере</text>
+  <text x="394" y="282" fill="#b9a7c9" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="24">Windows · Linux</text>
+</svg>
