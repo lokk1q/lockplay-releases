@@ -1,0 +1,47 @@
+# Posts every published release to the Telegram channel: release text + download buttons.
+# Needs the repo secret TELEGRAM_BOT_TOKEN (the bot must be an admin of the channel).
+# Optional repo variable TELEGRAM_CHAT (default @lockplay_off).
+name: Post release to Telegram
+on:
+  release:
+    types: [published]
+  workflow_dispatch:        # re-post the latest release by hand
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send to Telegram
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT: ${{ vars.TELEGRAM_CHAT || '@lockplay_off' }}
+          REPO: ${{ github.repository }}
+          TAG: ${{ github.event.release.tag_name }}
+          BODY: ${{ github.event.release.body }}
+          GH_TOKEN: ${{ github.token }}
+        shell: python
+        run: |
+          import json, os, sys, urllib.request
+          token = os.environ.get("TOKEN")
+          if not token:
+              print("TELEGRAM_BOT_TOKEN is not set - nothing to do"); sys.exit(0)
+          repo, tag, body = os.environ["REPO"], os.environ.get("TAG"), os.environ.get("BODY") or ""
+          if not tag:   # manual run: take the latest release
+              req = urllib.request.Request(f"https://api.github.com/repos/{repo}/releases/latest",
+                                           headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"]})
+              rel = json.load(urllib.request.urlopen(req))
+              tag, body = rel["tag_name"], rel.get("body") or ""
+          base = f"https://github.com/{repo}/releases/download/{tag}"
+          text = body.strip()[:3900] or f"LockPlay {tag}"
+          text += "\n\nуже стоит 0.4.0+? плеер сам предложит обновиться"
+          markup = {"inline_keyboard": [
+              [{"text": "⬇ Windows", "url": f"{base}/LockPlay-windows.zip"},
+               {"text": "⬇ Linux (AppImage)", "url": f"{base}/LockPlay-x86_64.AppImage"}],
+              [{"text": "Что нового на GitHub", "url": f"https://github.com/{repo}/releases/tag/{tag}"}]]}
+          data = json.dumps({"chat_id": os.environ["CHAT"], "text": text, "reply_markup": markup,
+                             "link_preview_options": {"is_disabled": True}}).encode()
+          req = urllib.request.Request(f"https://api.telegram.org/bot{token}/sendMessage", data=data,
+                                       headers={"Content-Type": "application/json"})
+          try:
+              print(json.load(urllib.request.urlopen(req)).get("ok"))
+          except urllib.error.HTTPError as e:
+              print("Telegram error:", e.code, e.read().decode()[:300]); sys.exit(1)
